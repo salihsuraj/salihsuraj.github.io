@@ -1,0 +1,42 @@
+{%  extends 'studentmgt/base.html' %}
+{% block content %}
+{% include 'studentmgt/navbar.html' %}
+		<div class="row">
+			<div class="col-md">
+				<div class="card card-body">
+					<h5>Students</h5>
+				</div>
+				<div class="card card-body">
+                    <a class="btn btn-primary  btn-sm btn-block" href="{% url 'addstudent' %}">Add New Student</a>
+					<table class="table">
+						<tr>
+							<th>Full Name</th>
+							<th>Age</th>
+							<th>Gender</th>
+                            <th>Date Enrolled</th>
+                            <th>Address</th>
+                            <th>Phone</th>
+                            <th>Update</th>
+                            <th>Delete</th>
+						</tr>
+
+						{% for student in students %}
+							<tr>
+								<td>{{student.full_name}}</td>
+								<td>{{student.age}}</td>
+                                <td>{{student.sex}}</td>
+								<td>{{student.date_enrolled}}</td>
+                                <td>{{student.address}}</td>
+                                <td>{{student.phone_num}}</td>
+								<td><a class="btn btn-sm btn-info" href="{% url 'updatestudent' student.id %}">Update</a></td>
+                                <td><a class="btn btn-sm btn-danger" href="{% url 'deletestudent' student.id %}">Delete</a></td>
+							</tr>
+						{% endfor %}
+
+					</table>
+				</div>
+			</div>
+
+		</div>
+
+{% endblock content %}

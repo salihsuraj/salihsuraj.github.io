@@ -1,0 +1,44 @@
+{%  extends 'studentmgt/base.html' %}
+{% block content %}
+{% include 'studentmgt/navbar.html' %}
+<div class="row">
+    <div class="col-md">
+        <div class="card card-body">
+            <h5>Students</h5>
+        </div>
+        <div class="card card-body">
+            <a class="btn btn-primary  btn-sm btn-block" href="{% url 'addtest' %}">Add New Student Test Score HERE!</a>
+            <table class="table">
+                <tr>
+                    <th>Full Name</th>
+                    <th>Mathematics</th>
+                    <th>English</th>
+                    <th>Chemistry</th>
+                    <th>Physics</th>
+                    <th>Biology</th>
+                    <th>Geography</th>
+                    <th>Edit Scores</th>
+                    <th>Email Results</th>
+                </tr>
+
+                {% for s in subjects %}
+                <tr>
+                    <td>{{s.student}}</td>
+                    <td>{{s.maths}}</td>
+                    <td>{{s.english}}</td>
+                    <td>{{s.chemistry}}</td>
+                    <td>{{s.physics}}</td>
+                    <td>{{s.biology}}</td>
+                    <td>{{s.geography}}</td>
+                    <td><a class="btn btn-sm btn-info" href="{% url 'testedit' s.id %}">Edit</a></td>
+                    <td><a class="btn btn-sm btn-info" href="#">Send</a></td>
+                </tr>
+                {% endfor %}
+
+            </table>
+        </div>
+    </div>
+
+</div>
+
+{% endblock content %}

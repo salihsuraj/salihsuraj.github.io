@@ -1,0 +1,11 @@
+{% extends 'studentmgt/base.html' %}
+{% block content %}
+{% include 'studentmgt/navbar.html' %}
+<p>Are you sure you want to delete {{teacher.full_name}} ?</p>
+<form action="{% url 'deleteteacher' teacher.id %}"  method="POST">
+    {% csrf_token %}
+    <a href="{% url 'allteachers' %}">Cancel</a>
+    <input type="submit" name="Confirm">
+</form>
+
+{% endblock %}

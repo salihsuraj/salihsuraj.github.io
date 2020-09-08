@@ -1,0 +1,11 @@
+{% extends 'studentmgt/base.html' %}
+{% block content %}
+{% include 'studentmgt/navbar.html' %}
+
+<form action="" method="POST">
+    {% csrf_token %}
+    {{form}}
+    <input type="submit" name="Update">
+</form>
+
+{% endblock %}

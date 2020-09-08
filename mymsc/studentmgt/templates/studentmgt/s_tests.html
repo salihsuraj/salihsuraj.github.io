@@ -1,0 +1,39 @@
+{%  extends 'studentmgt/base.html' %}
+{% block content %}
+{% include 'studentmgt/navbar.html' %}
+<div class="row">
+			<div class="col-md">
+				<div class="card card-body">
+					<h5></h5>
+				</div>
+				<div class="card card-body">
+					<table class="table">
+						<tr>
+							<th>Mathematics</th>
+							<th>English</th>
+                            <th>Chemistry</th>
+                            <th>Physics</th>
+                            <th>Biology</th>
+                            <th>Geography</th>
+                            <th>Edit Exam</th>
+                            <th>Edit Test</th>
+						</tr>
+							<tr>
+								<td>{{x.maths}}</td>
+								<td>{{x.english}}</td>
+                                <td>{{x.chemistry}}</td>
+								<td>{{x.physics}}</td>
+                                <td>{{x.biology}}</td>
+                                <td>{{x.geography}}</td>
+                                <td><a class="btn btn-sm btn-info" href="#">Update</a></td>
+                                <td><a class="btn btn-sm btn-danger" href="#">Delete</a></td>
+							</tr>
+						{% endfor %}
+
+					</table>
+				</div>
+			</div>
+
+		</div>
+
+{% endblock %}
